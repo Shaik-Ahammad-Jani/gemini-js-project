@@ -1,0 +1,113 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three.js Background</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+    section{
+        background-image: url("https://nesso.vn/wp-content/uploads/2023/11/z4889847320866_e53c3e6d9ece916bf9f506b63079b1c1-1024x742.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body>
+    <section>
+
+    </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+  <script type="module">
+    // JavaScript code will go here
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Chatbot</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .messages {
+            height: 200px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+        }
+        .message {
+            margin-bottom: 5px;
+        }
+        .user-message {
+            color: blue;
+        }
+        .bot-message {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="messages"></div>
+        <input type="text" id="userInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById('userInput').value;
+            if (userInput.trim() === '') return;
+
+            // Here you would make an API call to your LLM
+            // Replace with your actual API endpoint and credentials
+            // const apiUrl = 'https://your-llm-api-endpoint';
+            // const apiKey = 'your-api-key';
+
+            const apikey="AIzaSyCLpFWdmghLtYZNR6fNR8j-sSbVtW9azF8"
+            const apiUrl="https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
+
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({ message: userInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const botResponse = data.message;
+
+                // Display user and bot messages in the chat
+                const messagesDiv = document.querySelector('.messages');
+                messagesDiv.innerHTML += `<div class="message user-message">${userInput}</div>`;
+                messagesDiv.innerHTML += `<div class="message bot-message">${botResponse}</div>`;
+
+                // Scroll to the bottom of the chat
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+                // Clear the input field
+                document.getElementById('userInput').value = '';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Handle API error (e.g., display an error message to the user)
+            });
+        }
+    </script>
+</body>
+</html>

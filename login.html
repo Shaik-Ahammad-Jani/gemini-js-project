@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    
+    <section>
+
+        <div id="container">
+            <h1 style="color: white;">Login</h1><br>
+            <div class="box">
+                <span><i class="fa-regular fa-envelope"></i></span>
+                <input type="email" name="" id="email">
+                <label for="">Email</label>
+            </div><br><br>
+            <div class="box">
+                <span><i class="fa-solid fa-lock"></i></span>
+                <input type="password" name="" id="password">
+                <label for="">password</label>
+            </div><br><br>
+            <p><a href="./index.html">Register</a>&emsp;Don't have an Account</p><br><br>
+            <div id="btn">
+                <button>Login</button>
+            </div>
+        </div>
+
+    </section>
+
+
+    <script>
+        
+        document.getElementById("btn").addEventListener("click",(e)=>{
+            e.preventDefault()
+            email=document.getElementById("email").value
+            password=document.getElementById("password").value
+            
+            // if(email.value!=="" && password.value!==""){
+
+            //     open("./index.html")
+            // }else{
+            //     alert("enter login details")
+            // }
+            fetch("https://gemini-js-project.onrender.com/users").then((res)=>res.json()).then((data)=>{
+                console.log(data)
+                let loginSuccess = false;
+                data.forEach((values)=>{
+                    if(values.email===email && values.password===password){
+                        loginSuccess = true;
+
+                        localStorage.setItem('nickname', values.nickname);
+                        localStorage.setItem('email', values.email);
+
+
+                        alert("Login Successful")
+                        window.location.href = "./original.html";
+                    }
+                })
+                if (!loginSuccess) {
+                    alert('Email & Password Does not match' )
+                }
+            }
+        )
+        password.value=""
+        email.value=""
+        })
+    </script>    
+</body>email
+</html>

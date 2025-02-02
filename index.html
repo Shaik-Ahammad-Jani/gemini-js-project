@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+<body>
+    <section>
+        <div id="container">
+            <h1 style="color: white">Register</h1>
+            <br><br>
+            
+            <div class="box">
+                <span><i class="fa-regular fa-user"></i></span>
+                <input type="text" id="username" required>
+                <label>Username</label>
+            </div>
+            <br>
+            <div class="box">
+                <span><i class="fa-solid fa-file-signature"></i></span>
+                <input type="text" id="nickname" required>
+                <label>Nickname</label>
+            </div>
+            <br>
+            <div class="box">
+                <span><i class="fa-regular fa-envelope"></i></span>
+                <input type="email" id="email" required>
+                <label>Email</label>
+            </div>
+            <br>
+            <div class="box">
+                <span class="toggle-password" data-target="password">
+                    <i class="fa-solid fa-lock"></i>
+                </span>
+                <input type="password" id="password" required>
+                <label>Password</label>
+            </div>
+            <br>
+            <div class="box">
+                <span class="toggle-password" data-target="cpassword">
+                    <i class="fa-solid fa-lock"></i>
+                </span>
+                <input type="password" id="cpassword" required>
+                <label>Confirm Password</label>
+            </div>
+            <br>
+
+            <p style="color: white;"><a style="color:white" href="./login.html">Login</a>&emsp;Already have an Account</p><br>
+            <div id="btn">
+                <button id="registerBtn">Register</button>
+            </div>
+            <p style="color: white;margin-top: 20px;margin-left:250px ;border: 1px solid;background-color: red;margin: 10px,0;border-radius: 10px;width: 100px;text-align: center;height: 30px;"> <a href="./original.html" style="color: white;font-size: 1.2rem;text-decoration: none;">Guest</a>&ensp;User</p>
+        </div>
+    </section>
+
+    <script>
+        // Toggle Password Visibility
+        document.querySelectorAll(".toggle-password").forEach(icon => {
+            icon.addEventListener("click", function () {
+                const targetId = this.getAttribute("data-target");
+                const input = document.getElementById(targetId);
+                if (input.type === "password") {
+                    input.type = "text";
+                    this.innerHTML = '<i class="fa-solid fa-lock-open"></i>';
+                } else {
+                    input.type = "password";
+                    this.innerHTML = '<i class="fa-solid fa-lock"></i>';
+                }
+            });
+        });
+
+        // Registration Logic
+        document.getElementById("registerBtn").addEventListener("click", (e) => {
+          e.preventDefault()
+            let username = document.getElementById("username").value.trim();
+            let nickname = document.getElementById("nickname").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value;
+            let cpassword = document.getElementById("cpassword").value;
+
+            if (!username || !nickname || !email || !password || !cpassword) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            if (password !== cpassword) {
+                alert("Passwords do not match.");
+                return;
+            }
+
+            // Store in LocalStorage
+            // localStorage.setItem("username", username);
+            // localStorage.setItem("nickname", nickname);
+            // localStorage.setItem("email", email);
+            // localStorage.setItem("password", password);
+//             fetch("http://localhost:3000/users", {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify({
+//     id: Date.now(), // Unique ID
+//     username: username.value,
+//     nickname: nickname.value,
+//     email: email.value,
+//     password: password.value,
+//     confirm_password: cpassword.value,
+//   }),
+// })
+//   .then((response) => {
+//     if (!response.ok) {
+//       throw new Error("Failed to register user");
+//     }
+//     return response.json();
+//   })
+//   .then((data) => {
+//     console.log("User registered successfully:", data);
+//     alert("Registration successful!");
+    
+//     // Delay redirection slightly to ensure localStorage is set
+//     setTimeout(() => {
+//       window.location.href = "./login.html";
+//     }, 1000);
+//   })
+//   .catch((error) => {
+//     console.error("Error:", error);
+//     alert("An error occurred while registering.");
+//   });
+fetch("https://gemini-js-project.onrender.com/users", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    id: Date.now(), // Unique ID
+    username: username,
+    nickname: nickname,
+    email: email,
+    password: password,
+  }),
+})
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Failed to register user");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    console.log("User registered successfully:", data);
+    alert("Registration successful!");
+    
+    // Delay redirection slightly to ensure localStorage is set
+    open("./login.html")
+    // setTimeout(() => {
+    // }, 1000);
+  })
+
+  .catch((error) => {
+    console.error("Error:", error);
+    alert("An error occurred while registering.");
+  });
+        })
+    </script>
+</body>
+</html>

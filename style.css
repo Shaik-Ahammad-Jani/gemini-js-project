@@ -1,0 +1,390 @@
+body{
+    position: relative;
+    overflow: hidden;
+}
+section {
+    display: flex; /* Use flexbox to lay out the sections horizontally */
+    width: 100%; /* Ensure the section spans the full width */
+    height: 100vh; /* Optional: Set height to full viewport height */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-y: hidden;
+}
+/* #section1,#dummy_section{
+    display: none;
+} */
+
+#section1 {
+    display: block;
+    position: relative;
+    width: 4%; /* Set 10% width for section1 */
+    background-color: aliceblue; /* Optional: Add a background color for visibility */
+}
+
+#dummy_section{
+    width:20%;
+    display: none;
+    background-color: aliceblue;
+    position: relative;
+}
+#settings1{
+    position: absolute;
+    /* bottom:10px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    bottom: 10px;
+    transition: bottom 0.3s ease;
+}
+.settinggs p{
+    font-size: 0.9em;
+    font-weight: 600;
+    line-height: 10px;
+}
+.settinggs{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 150px;
+    /* background-color: gray; */
+    gap: 20px;
+    /* position: absolute; */
+    margin-left: 15px;
+}
+
+#section2 {
+    flex-grow: 1; 
+    background-color: white; 
+}
+
+
+#menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#menu1{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    position: absolute;
+    top: 27px;
+    left: 15px;
+}
+
+#menu:hover{
+    background-color: rgba(0,0,0,0.1);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: none;
+    /* transform: scale(1); */
+    /* opacity: 0.2; */
+}
+
+#newChat1{
+    background-color: rgba(0,0,0,0.05234);
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    position: absolute;
+    top:15%;
+}
+
+#newChat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:10%;
+    left: 0.34rem;
+
+}
+#settings{
+    /* margin-top: 600%; */
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    bottom: 10px;
+    transition: bottom 0.3s ease;
+
+}
+
+.settingss{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.settingss span{
+    font-size: 1.1em;
+}
+
+.settingss:hover{
+    content: "name";
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: translateX(10px);
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 50%;
+    height: 35px;
+    width:35px;
+    /* z-index: -1; */
+    /* position: fixed; */
+}
+
+#help{
+    font-size: 1.2em;
+}
+#menu{
+    margin-top: 1em;
+    font-size: 1.2em;
+}
+
+#newChat span{
+    margin-top: 2em;
+    border-radius: 50%;
+    background-color:lightgray;
+    font-size: 1.5em;
+    font-weight: 900;
+    display: inline-block;
+    width:40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 20px;
+    /* padding-top: 10px; */
+}
+
+#nav1{
+    display: none;
+}
+
+#side{
+    display: flex;
+    align-items: center;
+    width: 350px;
+    /* justify-content: space-between; */
+    gap: 40px;
+    /* border: 1px solid; */
+}
+
+#title p{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight:500;
+    /* font-size: 1.35em; */
+}
+
+#box{
+    /* border: 1px solid; */
+    display: none;
+    max-width:25% ;
+    border-radius: 15px;
+    padding-left: 10px;
+    box-shadow: 5px 5px 2px rgba(0,0,0,0.1);
+    background-color: aliceblue;
+}
+#upgrade{
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+}
+#upgrade button{
+    width: 90px;
+    height: 35px;
+    border-radius: 40px;
+    background-color: rgba(0,0,0,0.1);
+    color: blue;
+    border: none;
+    margin-left: 69px;
+
+}
+.boxx span{
+    margin-left: 30px;
+}
+.boxx span:hover{
+    background-color: rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+.boxx #span1{
+    font-size: 0.8em;
+    line-height: 2px;
+}
+
+#title span{
+    display: inline-block;
+    line-height: 10px;
+}
+
+#title:hover{
+    background-color: rgba(0,0,0,0.1);
+    cursor: pointer;
+    /* width:130px;
+    height: 50px; */
+}
+
+#advance{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: lightgrey;
+    border-radius: 9px;
+    width: 250px;
+    height: 30px;
+    font-size: 1em;
+    :hover{
+        cursor: pointer;
+    }
+    
+}
+#advance span{
+    font-size: 0.8em;
+}
+#app{
+    font-size: 1.5em;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    :hover{
+        cursor: pointer;
+    }
+}
+#acount{
+    background-color: brown;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    :hover{
+        cursor: pointer;
+    }
+}
+#google-acc:hover{
+    cursor: pointer;
+}
+#search{
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    align-items: end;
+}
+
+#input{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px 10px 40px;
+    border: 1px solid rgba(0,0,0,0.3);
+    /* overflow: visible;
+    box-sizing: border-box; */
+    border-radius: 50px;
+    height: 7%;
+}
+
+#input img{
+    cursor: pointer;
+}
+
+#content{
+    width: 80%;
+    /* height: 200px; */
+    position: absolute;
+    /* border: 1px solid;
+    box-shadow: 2px 2px 2px gray; */
+    top:10%;
+    overflow: visible;
+    left:15%;
+
+    /* background-color: red; */
+}
+
+#input #input1{
+    max-width: 100%;
+    border:none;
+    outline: none;
+    flex: 1;
+    padding-left: 10px;
+    font-size: 1.2em;
+    /* margin: 0px -100px 0px -100px; */
+}
+
+#input #input1::placeholder{
+    font-size: 1em;
+    max-width: 100%;
+    padding-left: 10px;
+}
+
+
+
+@media screen and (max-width:768px) {
+    #nav{
+        display: none;
+    }
+    #section2{
+        width: 100%;
+    }
+    #section1{
+        display: none;
+    }
+    #nav1{
+        display: block;
+        display: flex;
+        overflow: hidden;
+        justify-content: space-between;
+    }
+    #navbar1{
+        display: flex;
+        align-items: center;
+        flex:1;
+        gap: 30px;
+        /* justify-content: space-around; */
+    }
+    #navbar2{
+        display: flex;
+        align-items: center;
+        flex: 1;
+        gap: 50px;
+        justify-content: end;
+    }
+    #input{
+        width:83%;
+    }
+    #content{
+        height: 300px;
+    }
+    #input{
+        z-index: 500;
+    }
+    
+    
+}
+@media screen and (width:1024px) {
+    #settings{
+        margin-top: 2000%;
+    }
+}
+@media screen and (width:1440px) {
+    #settings{
+        margin-top: 1550%;
+    }
+}
