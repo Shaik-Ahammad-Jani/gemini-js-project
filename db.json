@@ -3427,6 +3427,57 @@
       "quantity": 1,
       "id": 101
     }
+  ],
+  "users":[
+    {
+      "id": 1738489530487,
+      "username": "jani",
+      "nickname": "ahammad",
+      "email": "jani@123",
+      "password": "123"
+    },
+    {
+      "id": 1738489630629,
+      "username": "tiru",
+      "nickname": "tiru",
+      "email": "tiru@123",
+      "password": "123"
+    },
+    {
+      "id": 1738489766285,
+      "username": "omesh",
+      "nickname": "omesh",
+      "email": "omesh@123",
+      "password": "123"
+    },
+    {
+      "id": 1738492631061,
+      "username": "syam",
+      "nickname": "syam",
+      "email": "syam@123",
+      "password": "123"
+    },
+    {
+      "id": 1738495252534,
+      "username": "shaik jani",
+      "nickname": "Ahammad",
+      "email": "shaikjani4403@gmail.com",
+      "password": "262003"
+    },
+    {
+      "id": 1738495310276,
+      "username": "tirumala",
+      "nickname": "banda",
+      "email": "tiru@123",
+      "password": "@123@123"
+    },
+    {
+      "id": 1738517073401,
+      "username": "prabha",
+      "nickname": "darling",
+      "email": "prabha@123",
+      "password": "123"
+    }
   ]
   
 }
